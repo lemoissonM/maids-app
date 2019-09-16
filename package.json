@@ -1,0 +1,50 @@
+{
+  "name": "maids-app",
+  "version": "1.0.0",
+  "description": "web app to hire a house-maids",
+  "main": "index.js",
+  "nyc": {
+    "require": [
+      "esm"
+    ]
+  },
+  "scripts": {
+    "test": "NODE_ENV=DB_TEST nyc mocha --timeout 200000 --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "start": "node -r esm ./server/index.js",
+    "dev": "nodemon --exec -r esm ./server/index.js",
+    "table": "node -r esm ./server/db/models/tables.js",
+    "dropTable": "node -r esm ./server/db/models/drop.js",
+    "dummy": "NODE_ENV=DB_TEST node -r esm ./server/db/models/seeders.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbanishimwe/maids-app.git"
+  },
+  "author": "Andela pre-simulation program",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/urbanishimwe/maids-app/issues"
+  },
+  "homepage": "https://github.com/urbanishimwe/maids-app#readme",
+  "dependencies": {
+    "bcrypt": "3.0.6",
+    "body-parser": "1.19.0",
+    "chai": "4.2.0",
+    "chai-http": "4.3.0",
+    "coveralls": "3.0.6",
+    "dotenv": "8.1.0",
+    "esm": "3.2.25",
+    "express": "4.17.1",
+    "jsonwebtoken": "8.5.1",
+    "mocha": "6.2.0",
+    "nodemon": "1.19.2",
+    "nyc": "14.1.1",
+    "pg": "7.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
